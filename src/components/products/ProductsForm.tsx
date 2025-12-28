@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { CommonCardLayout } from "../CommonCardLayout";
 import { LabeledInput } from "./LabelInput";
