@@ -49,7 +49,7 @@ export default function Header() {
 
                 <div className="hidden md:flex md:flex-col font-medium">
                   <div className="whitespace-nowrap text-[#07080B] text-[14px] ">
-                    Jenil Patel
+                    Mahesh
                   </div>
                   <div className="truncate whitespace-nowrap text-[12px] text-[#858D9D]">
                     Manager

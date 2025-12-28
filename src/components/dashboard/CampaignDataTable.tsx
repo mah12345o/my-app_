@@ -9,6 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Campaign } from "@/src/app/interface";
+import Link from "next/link";
 
 interface CampaignDataTableProps {
   campaigns?: Campaign[];
@@ -35,7 +36,11 @@ export const CampaignDataTable = ({
           {campaigns?.length > 0 ? (
             campaigns?.map((campaign) => (
               <TableRow key={campaign?.id}>
-                <TableCell className="font-medium">{campaign?.name}</TableCell>
+                <TableCell className="font-medium">
+                  <Link href={`campaign-details?id=${campaign?.id}`}>
+                    {campaign?.name}
+                  </Link>
+                </TableCell>
                 <TableCell>
                   <span
                     className={`px-2 py-1 rounded text-xs ${

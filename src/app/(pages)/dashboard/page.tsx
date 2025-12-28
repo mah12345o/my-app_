@@ -1,6 +1,6 @@
+import { CampaignDataTable } from "@/src/components/dashboard/CampaignDataTable";
 import { DashboardHeader } from "@/src/components/dashboard/DashboardHeader";
 import { DashboardStatsCommonCard } from "@/src/components/dashboard/DashboardStatsCommonCard";
-import { CampaignDataTable } from "@/src/components/dashboard/CampaignDataTable";
 import {
   getMixoAdsCampaignInsightsData,
   getMixoAdsCampaignTableData,

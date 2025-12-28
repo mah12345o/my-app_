@@ -49,10 +49,10 @@ export const getMixoAdsCampaignTableData = async () => {
     );
 
     if (!res.ok) {
-      throw new Error(`Failed to fetch campaigns: ${res?.status}`);
+      throw new Error(`Failed to fetch campaigns: ${res.status}`);
     }
 
-    const data: CampaignsResponse = await res?.json();
+    const data: CampaignsResponse = await res.json();
 
     return {
       campaigns: data?.campaigns,
@@ -64,10 +64,11 @@ export const getMixoAdsCampaignTableData = async () => {
     };
   }
 };
-export const getMixoAdsCampaignDetails = async () => {
+
+export const getMixoAdsCampaignDetails = async ({ id }: { id: string }) => {
   try {
     const res = await fetch(
-      "https://mixo-fe-backend-task.vercel.app/campaigns/camp_001",
+      `https://mixo-fe-backend-task.vercel.app/campaigns/${id}`,
       {
         method: "GET",
         headers: {
@@ -78,13 +79,13 @@ export const getMixoAdsCampaignDetails = async () => {
     );
 
     if (!res.ok) {
-      throw new Error(`Failed to fetch campaigns: ${res?.status}`);
+      throw new Error(`Failed to fetch campaigns: ${res.status}`);
     }
 
-    const data: CampaignDetailResponse = await res?.json();
+    const data: CampaignDetailResponse = await res.json();
 
     return {
-      campaignsDetail: data,
+      campaignsDetail: data?.campaign,
     };
   } catch (err) {
     console.error("err:", err);
