@@ -1,5 +1,7 @@
 import { getMixoAdsCampaignDetails } from "@/src/server-actions/server";
 import { CampaignDetailsCard } from "@/src/components/CampaignDetailsCard";
+import { CampaignDetailsShimmer } from "@/src/components/Shimmer";
+import { Suspense } from "react";
 
 export default async function CampaignDetails(props: {
   searchParams: Promise<{
@@ -18,7 +20,9 @@ export default async function CampaignDetails(props: {
 
   return (
     <div className="p-6">
-      <CampaignDetailsCard campaign={campaignsDetail} />
+      <Suspense fallback={<CampaignDetailsShimmer />}>
+        <CampaignDetailsCard campaign={campaignsDetail} />
+      </Suspense>
     </div>
   );
 }

@@ -15,21 +15,11 @@ export default function Sidebar() {
   const pathname = usePathname();
   const toggleSidebar = () => setIsOpen(!isOpen);
 
-
   const sideBarContent = [
     {
       id: 1,
       name: "Dashboard",
       path: "/dashboard",
-      icon: (
-        <MdSpaceDashboard className="size-5 group-hover:text-[#2086BF] text-[#858D9D]" />
-      ),
-      description: "Overview of key metrics and analytics",
-    },
-    {
-      id: 2,
-      name: "Campaign",
-      path: "/campaign",
       icon: (
         <MdSpaceDashboard className="size-5 group-hover:text-[#2086BF] text-[#858D9D]" />
       ),

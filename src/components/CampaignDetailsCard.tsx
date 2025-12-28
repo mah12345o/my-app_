@@ -13,7 +13,7 @@ export const CampaignDetailsCard = ({ campaign }: CampaignDetailsCardProps) => {
         <h1 className="text-2xl font-bold">{campaign?.name}</h1>
         <span
           className={`px-3 py-1 rounded-full text-sm font-medium ${
-            campaign.status === "active"
+            campaign?.status === "active"
               ? "bg-green-100 text-green-800"
               : campaign.status === "paused"
                 ? "bg-yellow-100 text-yellow-800"
@@ -48,7 +48,7 @@ export const CampaignDetailsCard = ({ campaign }: CampaignDetailsCardProps) => {
         <div className="p-4 bg-gray-50 rounded-lg">
           <h3 className="text-sm font-medium text-gray-600">Created</h3>
           <p className="text-lg font-semibold">
-            {new Date(campaign.created_at)?.toLocaleDateString()}
+            {new Date(campaign?.created_at)?.toLocaleDateString()}
           </p>
         </div>
       </div>
