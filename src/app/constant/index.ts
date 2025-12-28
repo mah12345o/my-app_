@@ -1,2 +1,19 @@
-export const clr = ["#2086BF", "#F86624", "#22CAAD", "#EB3D4D"];
-export const lightClr = ["#F2F4F8", "#FCF0EB", "#F2F6F1", "#FAE8E0"];
+import { DashboardStatItem } from "../interface";
+
+export const DASHBOARD_STATS_CONFIG: DashboardStatItem[] = [
+  { key: "total_campaigns", label: "Total Campaigns" },
+  { key: "active_campaigns", label: "Active Campaigns" },
+  { key: "paused_campaigns", label: "Paused Campaigns" },
+  { key: "completed_campaigns", label: "Completed Campaigns" },
+  { key: "total_impressions", label: "Total Impressions" },
+  { key: "total_clicks", label: "Total Clicks" },
+  { key: "total_conversions", label: "Total Conversions" },
+  { key: "total_spend", label: "Total Spend", format: "currency" },
+  { key: "avg_ctr", label: "Avg CTR", format: "percentage" },
+  { key: "avg_cpc", label: "Avg CPC", format: "currency" },
+  {
+    key: "avg_conversion_rate",
+    label: "Avg Conversion Rate",
+    format: "percentage",
+  },
+];

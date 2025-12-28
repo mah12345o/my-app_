@@ -1,11 +1,10 @@
 import "server-only";
+import { CampaignInsightsResponse } from "../app/interface";
 
-import { CampaignsResponse } from "../interface";
-
-export const getMixoAdsCampaignData = async () => {
+export const getMixoAdsCampaignInsightsData = async () => {
   try {
     const res = await fetch(
-      "https://mixo-fe-backend-task.vercel.app/campaigns",
+      "https://mixo-fe-backend-task.vercel.app/campaigns/insights",
       {
         method: "GET",
         headers: {
@@ -19,10 +18,10 @@ export const getMixoAdsCampaignData = async () => {
       throw new Error(`Failed to fetch campaigns: ${res.status}`);
     }
 
-    const data: CampaignsResponse = await res.json();
+    const data: CampaignInsightsResponse = await res.json();
 
     return {
-      campaigns: data.campaigns,
+      campaignsInsights: data?.insights,
     };
   } catch (err) {
     console.error("err:", err);

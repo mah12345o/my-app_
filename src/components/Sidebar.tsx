@@ -6,19 +6,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@radix-ui/react-accordion";
-import { HiMenu } from "react-icons/hi";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { AiFillProject } from "react-icons/ai";
-import { BsFillChatSquareFill } from "react-icons/bs";
-import { FaCalendar, FaFile } from "react-icons/fa";
+
 import { FcOrgUnit } from "react-icons/fc";
-import { MdSpaceDashboard } from "react-icons/md";
-import { PiShoppingCartSimpleFill } from "react-icons/pi";
-import { RiContactsFill } from "react-icons/ri";
-import { TiArrowSortedDown } from "react-icons/ti";
+import { HiMenu } from "react-icons/hi";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { MdSpaceDashboard } from "react-icons/md";
+import { TiArrowSortedDown } from "react-icons/ti";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,46 +34,20 @@ export default function Sidebar() {
       description: "Overview of key metrics and analytics",
     },
     {
-      id: 2,
-      name: "E-commerce",
-      path: "/ecommerce",
+      id: 1,
+      name: "Campaign",
+      path: "/campaign",
       icon: (
-        <PiShoppingCartSimpleFill className="size-5 group-hover:text-[#2086BF] text-[#858D9D]" />
+        <MdSpaceDashboard className="size-5 group-hover:text-[#2086BF] text-[#858D9D]" />
       ),
-      description: "Manage products, orders, and customers",
-      subItems: [
-        {
-          id: 2.1,
-          name: "Product",
-          path: "/products",
-          description: "View and manage product listings",
-        },
-        {
-          id: 2.2,
-          name: "Categories",
-          path: "/ecommerce/categories",
-          description: "View and manage categories ",
-        },
-        {
-          id: 2.3,
-          name: "Orders",
-          path: "/ecommerce/orders",
-          description: "Track and process customer orders",
-        },
-        {
-          id: 2.4,
-          name: "Customer",
-          path: "/ecommerce/customers",
-          description: "Manage customer information",
-        },
-      ],
+      description: "Overview of key metrics and analytics",
     },
     {
       id: 3,
-      name: "Project",
-      path: "/project",
+      name: "Campaign",
+      path: "/campaign",
       icon: (
-        <AiFillProject className="size-5 group-hover:text-[#2086BF] text-[#858D9D]" />
+        <MdSpaceDashboard className="size-5 group-hover:text-[#2086BF] text-[#858D9D]" />
       ),
       description: "Organize and track project progress",
       subItems: [
@@ -87,49 +57,7 @@ export default function Sidebar() {
           path: "/project/tasks",
           description: "Manage project tasks",
         },
-        {
-          id: 3.2,
-          name: "Timeline",
-          path: "/project/timeline",
-          description: "View project milestones",
-        },
       ],
-    },
-    {
-      id: 4,
-      name: "Contact",
-      path: "/contact",
-      icon: (
-        <RiContactsFill className="size-5 group-hover:text-[#2086BF] text-[#858D9D]" />
-      ),
-      description: "Manage contacts and communication",
-    },
-    {
-      id: 5,
-      name: "File Manager",
-      path: "/file-manager",
-      icon: (
-        <FaFile className="size-5 group-hover:text-[#2086BF] text-[#858D9D]" />
-      ),
-      description: "Organize and access files",
-    },
-    {
-      id: 6,
-      name: "Chat",
-      path: "/chat",
-      icon: (
-        <BsFillChatSquareFill className="size-5 group-hover:text-[#2086BF] text-[#858D9D]" />
-      ),
-      description: "Real-time messaging with team",
-    },
-    {
-      id: 7,
-      name: "Calendar",
-      path: "/calendar",
-      icon: (
-        <FaCalendar className="size-5 group-hover:text-[#2086BF] text-[#858D9D]" />
-      ),
-      description: "Schedule and track events",
     },
   ];
 
@@ -166,9 +94,9 @@ export default function Sidebar() {
           </div>
           <nav className="mt-6">
             <ul>
-              {sideBarContent?.map((el) => (
+              {sideBarContent?.map((el, index) => (
                 <li
-                  key={el?.id}
+                  key={index}
                   className={`${el.subItems?.some((sub) => pathname === sub.path) ? "border-[#2086BF] bg-[#c0e4f992] !text-[#2086BF] hover:border-s-0" : "hover:border-s-3"} py-5 text-[14px] font-semibold  px-0 hover:bg-[#c0e4f992] cursor-pointer group border-[#2086BF] `}
                 >
                   {el?.subItems && el?.subItems?.length > 0 ? (
