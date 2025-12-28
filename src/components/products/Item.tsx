@@ -5,7 +5,7 @@ import { IoMdArrowDropright } from "react-icons/io";
 import { MdClose } from "react-icons/md";
 import { RiSaveFill } from "react-icons/ri";
 import { CommonBtn } from "../dashboard/CommonBtn";
-import { ProductsForm } from "./ProductsForm";
+
 
 export const Item = () => {
   const router = useRouter();
@@ -36,7 +36,7 @@ export const Item = () => {
           </CommonBtn>
         </div>
       </div>
-      <ProductsForm />
+      <div>Product form placeholder</div>
     </div>
   );
 };
