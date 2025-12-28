@@ -1,4 +1,3 @@
-import { SelectDate } from "./SelectDate";
 export const DashboardHeader = () => {
   return (
     <div className="flex justify-between items-start items-end flex-col sm:flex-row gap-2">
@@ -8,7 +7,6 @@ export const DashboardHeader = () => {
           this is dashborad
         </p>
       </div>
-      <SelectDate />
     </div>
   );
 };
