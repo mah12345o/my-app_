@@ -37,3 +37,22 @@ export interface DashboardStatItem {
   label: string;
   format?: "currency" | "percentage" | "number";
 }
+
+export type CampaignStatus = "active" | "paused" | "completed";
+
+export type AdPlatform = "meta" | "google" | "tiktok";
+
+export interface Campaign {
+  id: string;
+  name: string;
+  brand_id: string;
+  statusType: CampaignStatus;
+  budget: number;
+  daily_budget: number;
+  platformsType: AdPlatform[];
+  created_at: string; // ISO date string
+}
+
+export interface CampaignDetailResponse {
+  campaign: Campaign;
+}
