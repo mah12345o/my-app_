@@ -2,8 +2,8 @@ import { CampaignDataTable } from "@/src/components/dashboard/CampaignDataTable"
 import { DashboardHeader } from "@/src/components/dashboard/DashboardHeader";
 import { DashboardStatsCommonCard } from "@/src/components/dashboard/DashboardStatsCommonCard";
 import {
-  getMixoAdsCampaignInsightsData,
-  getMixoAdsCampaignTableData,
+  getCampaignInsights,
+  getCampaigns,
 } from "@/src/server-actions/server";
 import { DASHBOARD_STATS_CONFIG } from "../../constant";
 import {
@@ -13,8 +13,8 @@ import {
 import { Suspense } from "react";
 
 export default async function Dashboard() {
-  const { campaignsInsights } = await getMixoAdsCampaignInsightsData();
-  const { campaigns } = await getMixoAdsCampaignTableData();
+  const { insights } = await getCampaignInsights();
+  const { campaigns } = await getCampaigns();
 
   return (
     <div className="flex flex-col gap-5">
@@ -25,7 +25,7 @@ export default async function Dashboard() {
             <DashboardStatsCommonCard
               key={key}
               text={label}
-              data={campaignsInsights?.[key]}
+              data={insights?.[key]}
               format={format}
             />
           ))}

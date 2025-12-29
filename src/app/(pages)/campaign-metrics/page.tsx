@@ -1,4 +1,4 @@
-import { getMixoAdsCampaignInsights } from "@/src/server-actions/server";
+import { getCampaignInsightsById } from "@/src/server-actions/server";
 import { MetricCard } from "@/src/components/MetricCard";
 
 export default async function CampaignMetrics(props: {
@@ -8,54 +8,54 @@ export default async function CampaignMetrics(props: {
 }) {
   const searchParams = await props?.searchParams;
 
-  const { campaignInsights } = await getMixoAdsCampaignInsights({
+  const { insights } = await getCampaignInsightsById({
     id: searchParams?.id,
   });
 
-  if (!campaignInsights) {
+  if (!insights) {
     return <div>Campaign insights not found</div>;
   }
 
   const metrics = [
     {
       title: "Impressions",
-      value: campaignInsights?.impressions?.toLocaleString(),
+      value: insights?.impressions?.toLocaleString(),
       bgColor: "bg-blue-50",
       textColor: "text-blue-600",
     },
     {
       title: "Clicks",
-      value: campaignInsights?.clicks?.toLocaleString(),
+      value: insights?.clicks?.toLocaleString(),
       bgColor: "bg-green-50",
       textColor: "text-green-600",
     },
     {
       title: "Conversions",
-      value: campaignInsights?.conversions?.toLocaleString(),
+      value: insights?.conversions?.toLocaleString(),
       bgColor: "bg-purple-50",
       textColor: "text-purple-600",
     },
     {
       title: "CPC",
-      value: `$${campaignInsights?.cpc}`,
+      value: `$${insights?.cpc}`,
       bgColor: "bg-orange-50",
       textColor: "text-orange-600",
     },
     {
       title: "CTR",
-      value: `${campaignInsights?.ctr}%`,
+      value: `${insights?.ctr}%`,
       bgColor: "bg-red-50",
       textColor: "text-red-600",
     },
     {
       title: "Timestamp",
-      value: new Date(campaignInsights?.timestamp).toLocaleDateString(),
+      value: new Date(insights?.timestamp).toLocaleDateString(),
       bgColor: "bg-indigo-50",
       textColor: "text-indigo-600",
     },
     {
       title: "Spend",
-      value: `$${campaignInsights?.spend?.toLocaleString()}`,
+      value: `$${insights?.spend?.toLocaleString()}`,
       bgColor: "bg-pink-50",
       textColor: "text-pink-600",
     },

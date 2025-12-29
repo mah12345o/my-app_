@@ -8,9 +8,9 @@ import {
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://mixo-fe-backend-task.vercel.app";
 
-export const getMixoAdsCampaignInsightsData = async () => {
+export const getCampaignInsights = async () => {
   try {
-    const res = await fetch(
+    const response = await fetch(
       `${API_BASE_URL}/campaigns/insights`,
       {
         method: "GET",
@@ -21,26 +21,26 @@ export const getMixoAdsCampaignInsightsData = async () => {
       }
     );
 
-    if (!res.ok) {
-      throw new Error(`Failed to fetch campaigns: ${res.status}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch campaign insights: ${response.status}`);
     }
 
-    const data: CampaignInsightsResponse = await res.json();
+    const data: CampaignInsightsResponse = await response.json();
 
     return {
-      campaignsInsights: data?.insights,
+      insights: data?.insights,
     };
-  } catch (err) {
-    console.error("err:", err);
+  } catch (error) {
+    console.error("Error fetching campaign insights:", error);
     return {
-      campaigns: null,
+      insights: null,
     };
   }
 };
 
-export const getMixoAdsCampaignTableData = async () => {
+export const getCampaigns = async () => {
   try {
-    const res = await fetch(
+    const response = await fetch(
       `${API_BASE_URL}/campaigns`,
       {
         method: "GET",
@@ -51,26 +51,26 @@ export const getMixoAdsCampaignTableData = async () => {
       }
     );
 
-    if (!res.ok) {
-      throw new Error(`Failed to fetch campaigns: ${res.status}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch campaigns: ${response.status}`);
     }
 
-    const data: CampaignsResponse = await res.json();
+    const data: CampaignsResponse = await response.json();
 
     return {
       campaigns: data?.campaigns,
     };
-  } catch (err) {
-    console.error("err:", err);
+  } catch (error) {
+    console.error("Error fetching campaigns:", error);
     return {
       campaigns: null,
     };
   }
 };
 
-export const getMixoAdsCampaignDetails = async ({ id }: { id: string }) => {
+export const getCampaignById = async ({ id }: { id: string }) => {
   try {
-    const res = await fetch(
+    const response = await fetch(
       `${API_BASE_URL}/campaigns/${id}`,
       {
         method: "GET",
@@ -81,26 +81,26 @@ export const getMixoAdsCampaignDetails = async ({ id }: { id: string }) => {
       }
     );
 
-    if (!res.ok) {
-      throw new Error(`Failed to fetch campaigns: ${res.status}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch campaign: ${response.status}`);
     }
 
-    const data: CampaignDetailResponse = await res.json();
+    const data: CampaignDetailResponse = await response.json();
 
     return {
-      campaignsDetail: data?.campaign,
+      campaign: data?.campaign,
     };
-  } catch (err) {
-    console.error("err:", err);
+  } catch (error) {
+    console.error("Error fetching campaign details:", error);
     return {
-      campaignsDetail: null,
+      campaign: null,
     };
   }
 };
 
-export const getMixoAdsCampaignInsights = async ({ id }: { id: string }) => {
+export const getCampaignInsightsById = async ({ id }: { id: string }) => {
   try {
-    const res = await fetch(
+    const response = await fetch(
       `${API_BASE_URL}/campaigns/${id}/insights`,
       {
         method: "GET",
@@ -111,19 +111,19 @@ export const getMixoAdsCampaignInsights = async ({ id }: { id: string }) => {
       }
     );
 
-    if (!res.ok) {
-      throw new Error(`Failed to fetch campaign insights: ${res.status}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch campaign insights: ${response.status}`);
     }
 
-    const data: CampaignsInsightsResponse = await res.json();
+    const data: CampaignsInsightsResponse = await response.json();
 
     return {
-      campaignInsights: data?.insights,
+      insights: data?.insights,
     };
-  } catch (err) {
-    console.error("err:", err);
+  } catch (error) {
+    console.error("Error fetching campaign insights:", error);
     return {
-      campaignInsights: null,
+      insights: null,
     };
   }
 };
