@@ -26,7 +26,7 @@ export default function CampaignStream({ id }: { id: string }) {
   useEffect(() => {
     const fetchStream = async () => {
       const res = await fetch(
-        `https://mixo-fe-backend-task.vercel.app/campaigns/${id}/insights/stream`
+        `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://mixo-fe-backend-task.vercel.app"}/campaigns/${id}/insights/stream`
       );
 
       if (!res.body) return;

@@ -6,10 +6,12 @@ import {
   CampaignsResponse,
 } from "../app/interface";
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://mixo-fe-backend-task.vercel.app";
+
 export const getMixoAdsCampaignInsightsData = async () => {
   try {
     const res = await fetch(
-      "https://mixo-fe-backend-task.vercel.app/campaigns/insights",
+      `${API_BASE_URL}/campaigns/insights`,
       {
         method: "GET",
         headers: {
@@ -39,7 +41,7 @@ export const getMixoAdsCampaignInsightsData = async () => {
 export const getMixoAdsCampaignTableData = async () => {
   try {
     const res = await fetch(
-      "https://mixo-fe-backend-task.vercel.app/campaigns",
+      `${API_BASE_URL}/campaigns`,
       {
         method: "GET",
         headers: {
@@ -69,7 +71,7 @@ export const getMixoAdsCampaignTableData = async () => {
 export const getMixoAdsCampaignDetails = async ({ id }: { id: string }) => {
   try {
     const res = await fetch(
-      `https://mixo-fe-backend-task.vercel.app/campaigns/${id}`,
+      `${API_BASE_URL}/campaigns/${id}`,
       {
         method: "GET",
         headers: {
@@ -99,7 +101,7 @@ export const getMixoAdsCampaignDetails = async ({ id }: { id: string }) => {
 export const getMixoAdsCampaignInsights = async ({ id }: { id: string }) => {
   try {
     const res = await fetch(
-      `https://mixo-fe-backend-task.vercel.app/campaigns/${id}/insights`,
+      `${API_BASE_URL}/campaigns/${id}/insights`,
       {
         method: "GET",
         headers: {
