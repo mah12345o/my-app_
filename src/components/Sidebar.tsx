@@ -2,18 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { FcOrgUnit } from "react-icons/fc";
-import { HiMenu } from "react-icons/hi";
+
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { MdSpaceDashboard } from "react-icons/md";
 
-export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false);
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
 
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
-  const toggleSidebar = () => setIsOpen(!isOpen);
 
   const sideBarContent = [
     {
@@ -28,24 +30,16 @@ export default function Sidebar() {
   ];
 
   useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+    onClose();
+  }, [pathname, onClose]);
 
   return (
     <>
-      {/* Mobile Menu Button */}
-      <button
-        className="md:hidden absolute top-0 p-5 focus:outline-none"
-        onClick={toggleSidebar}
-      >
-        <HiMenu size={30} />
-      </button>
-
       {/* Sidebar */}
       <div
         className={`fixed inset-y-0 left-0 w-[257px] bg-white transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 transition-transform duration-200 ease-in-out z-30`}
+        } lg:translate-x-0 transition-transform duration-200 ease-in-out z-30`}
       >
         <div className="">
           <div className="flex items-center justify-between gap-2 px-4 py-4">
@@ -54,8 +48,9 @@ export default function Sidebar() {
               <h2 className="text-[24px] font-semibold">MyTech</h2>
             </div>
             <IoCloseCircleOutline
-              onClick={() => setIsOpen(false)}
-              className="text-black flex md:hidden"
+              onClick={onClose}
+              className="text-black flex lg:hidden cursor-pointer"
+              size={24}
             />
           </div>
           <nav className="mt-6">
@@ -68,6 +63,7 @@ export default function Sidebar() {
                   <Link
                     href={el.path || "/"}
                     className="text-[#4A4C56] hover:text-[#2086BF] flex px-5 items-center group-hover:text-[#2086BF]"
+                    onClick={onClose}
                   >
                     {el.icon}
                     <span className="px-4">{el.name}</span>
@@ -82,8 +78,8 @@ export default function Sidebar() {
       {/* Overlay for mobile when sidebar is open */}
       {isOpen && (
         <div
-          className="fixed inset-0 !bg-white w-fit md:hidden z-20"
-          onClick={toggleSidebar}
+          className="fixed inset-0 bg-black bg-opacity-50 lg:hidden z-20"
+          onClick={onClose}
         ></div>
       )}
     </>
