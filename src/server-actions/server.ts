@@ -2,6 +2,7 @@ import "server-only";
 import {
   CampaignDetailResponse,
   CampaignInsightsResponse,
+  CampaignsInsightsResponse,
   CampaignsResponse,
 } from "../app/interface";
 
@@ -91,6 +92,36 @@ export const getMixoAdsCampaignDetails = async ({ id }: { id: string }) => {
     console.error("err:", err);
     return {
       campaignsDetail: null,
+    };
+  }
+};
+
+export const getMixoAdsCampaignInsights = async ({ id }: { id: string }) => {
+  try {
+    const res = await fetch(
+      `https://mixo-fe-backend-task.vercel.app/campaigns/${id}/insights`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        cache: "no-store",
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch campaign insights: ${res.status}`);
+    }
+
+    const data: CampaignsInsightsResponse = await res.json();
+
+    return {
+      campaignInsights: data?.insights,
+    };
+  } catch (err) {
+    console.error("err:", err);
+    return {
+      campaignInsights: null,
     };
   }
 };

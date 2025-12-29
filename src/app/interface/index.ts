@@ -56,3 +56,19 @@ export interface Campaign {
 export interface CampaignDetailResponse {
   campaign: Campaign;
 }
+
+export interface CampaignInsight {
+  campaign_id: string;
+  timestamp: string; // ISO date string
+  impressions: number;
+  clicks: number;
+  conversions: number;
+  spend: number;
+  ctr: number; // percentage
+  cpc: number; // cost per click
+  conversion_rate: number; // percentage
+}
+
+export interface CampaignsInsightsResponse {
+  insights: CampaignInsight;
+}

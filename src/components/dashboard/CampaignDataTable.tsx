@@ -36,11 +36,7 @@ export const CampaignDataTable = ({
           {campaigns?.length > 0 ? (
             campaigns?.map((campaign) => (
               <TableRow key={campaign?.id}>
-                <TableCell className="font-medium">
-                  <Link href={`campaign-details?id=${campaign?.id}`}>
-                    {campaign?.name}
-                  </Link>
-                </TableCell>
+                <TableCell className="font-medium">{campaign?.name}</TableCell>
                 <TableCell>
                   <span
                     className={`px-2 py-1 rounded text-xs ${
@@ -61,6 +57,18 @@ export const CampaignDataTable = ({
                 <TableCell>{campaign?.platforms?.join(", ")}</TableCell>
                 <TableCell>
                   {new Date(campaign?.created_at).toLocaleDateString()}
+                  <Link
+                    className="bg-blue-400 p-2 text-xs ml-3 rounded-2xl text-white hover:underline"
+                    href={`campaign-metrics?id=${campaign?.id}`}
+                  >
+                    View Insight
+                  </Link>
+                  <Link
+                    className="bg-blue-400 p-2 text-xs ml-3 rounded-2xl text-white hover:underline"
+                    href={`campaign-details?id=${campaign?.id}`}
+                  >
+                    View Details
+                  </Link>
                 </TableCell>
               </TableRow>
             ))
