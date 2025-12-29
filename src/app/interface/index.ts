@@ -72,3 +72,27 @@ export interface CampaignInsight {
 export interface CampaignsInsightsResponse {
   insights: CampaignInsight;
 }
+
+export interface StreamingInsight {
+  campaign_id: string;
+  timestamp: string;
+  impressions: number;
+  clicks: number;
+  conversions: number;
+  spend: number;
+  ctr: number;
+  cpc: number;
+  conversion_rate: number;
+}
+
+export interface StreamingInsightsResponse {
+  campaign_id: string;
+  timestamp: string;
+  impressions: number;
+  clicks: number;
+  conversions: number;
+  spend: number;
+  ctr: number;
+  cpc: number;
+  conversion_rate: number;
+}

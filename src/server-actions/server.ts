@@ -4,6 +4,7 @@ import {
   CampaignInsightsResponse,
   CampaignsInsightsResponse,
   CampaignsResponse,
+  StreamingInsightsResponse,
 } from "../app/interface";
 
 export const getMixoAdsCampaignInsightsData = async () => {

@@ -69,6 +69,12 @@ export const CampaignDataTable = ({
                   >
                     View Details
                   </Link>
+                  <Link
+                    className="bg-green-500 p-2 text-xs ml-3 rounded-2xl text-white hover:underline"
+                    href={`/campaigns/${campaign?.id}/insights/stream`}
+                  >
+                    Stream
+                  </Link>
                 </TableCell>
               </TableRow>
             ))
