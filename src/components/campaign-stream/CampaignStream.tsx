@@ -75,16 +75,16 @@ export default function CampaignStream({ id }: { id: string }) {
       {/* KPI CARD */}
       <div className="rounded-xl border bg-white shadow-sm p-5 max-w-md">
         <div className="text-sm text-gray-500 mb-1">Campaign ID</div>
-        <div className="text-lg font-semibold mb-4">{metrics.campaign_id}</div>
+        <div className="text-lg font-semibold mb-4">{metrics?.campaign_id}</div>
 
         <div className="space-y-3">
-          <Metric label="Impressions" value={metrics.impressions} />
-          <Metric label="Clicks" value={metrics.clicks} />
-          <Metric label="Spend" value={`₹${metrics.spend}`} />
+          <Metric label="Impressions" value={metrics?.impressions} />
+          <Metric label="Clicks" value={metrics?.clicks} />
+          <Metric label="Spend" value={`₹${metrics?.spend}`} />
         </div>
 
         <div className="text-xs text-gray-400 mt-4">
-          Last updated at {metrics.timestamp}
+          Last updated at {metrics?.timestamp}
         </div>
       </div>
 

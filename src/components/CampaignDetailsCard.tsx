@@ -7,6 +7,30 @@ interface CampaignDetailsCardProps {
 }
 
 export const CampaignDetailsCard = ({ campaign }: CampaignDetailsCardProps) => {
+  const campaignDetails = [
+    {
+      label: "Brand ID",
+      value: campaign?.brand_id,
+    },
+    {
+      label: "Total Budget",
+      value: `$${campaign?.budget}`,
+    },
+    {
+      label: "Daily Budget",
+      value: `$${campaign?.daily_budget}`,
+    },
+    {
+      label: "Platforms",
+      value: campaign?.platforms,
+    },
+    {
+      label: "Created",
+      value: campaign?.created_at
+        ? new Date(campaign?.created_at).toLocaleDateString()
+        : "-",
+    },
+  ];
   return (
     <div className="rounded-lg border bg-white p-6">
       <div className="flex items-center justify-between mb-4">
@@ -25,32 +49,12 @@ export const CampaignDetailsCard = ({ campaign }: CampaignDetailsCardProps) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div className="p-4 bg-gray-50 rounded-lg">
-          <h3 className="text-sm font-medium text-gray-600">Brand ID</h3>
-          <p className="text-lg font-semibold">{campaign?.brand_id}</p>
-        </div>
-
-        <div className="p-4 bg-gray-50 rounded-lg">
-          <h3 className="text-sm font-medium text-gray-600">Total Budget</h3>
-          <p className="text-lg font-semibold">${campaign?.budget}</p>
-        </div>
-
-        <div className="p-4 bg-gray-50 rounded-lg">
-          <h3 className="text-sm font-medium text-gray-600">Daily Budget</h3>
-          <p className="text-lg font-semibold">${campaign?.daily_budget}</p>
-        </div>
-
-        <div className="p-4 bg-gray-50 rounded-lg">
-          <h3 className="text-sm font-medium text-gray-600">Platforms</h3>
-          <p className="text-lg font-semibold">{campaign?.platforms}</p>
-        </div>
-
-        <div className="p-4 bg-gray-50 rounded-lg">
-          <h3 className="text-sm font-medium text-gray-600">Created</h3>
-          <p className="text-lg font-semibold">
-            {new Date(campaign?.created_at)?.toLocaleDateString()}
-          </p>
-        </div>
+        {campaignDetails?.map(({ label, value }) => (
+          <div key={label} className="p-4 bg-gray-50 rounded-lg">
+            <h3 className="text-sm font-medium text-gray-600">{label}</h3>
+            <p className="text-lg font-semibold">{value ?? "-"}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
