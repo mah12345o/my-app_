@@ -2,7 +2,6 @@ import Link from "next/link";
 import { BiUserCircle } from "react-icons/bi";
 import { FaCalendarAlt } from "react-icons/fa";
 import { HiMenu } from "react-icons/hi";
-import { IoIosSearch } from "react-icons/io";
 import { RiNotification4Fill } from "react-icons/ri";
 import { TbMailFilled } from "react-icons/tb";
 import { TiArrowSortedDown } from "react-icons/ti";
