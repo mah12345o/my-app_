@@ -45,7 +45,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           <div className="flex items-center justify-between gap-2 px-4 py-4">
             <div className="flex items-center">
               <FcOrgUnit size={30} />
-              <h2 className="text-[24px] font-semibold">MyTech</h2>
+              <h2 className="text-[24px] font-semibold">Digi Dash</h2>
             </div>
             <IoCloseCircleOutline
               onClick={onClose}
