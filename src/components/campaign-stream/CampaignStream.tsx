@@ -70,17 +70,21 @@ export default function CampaignStream({ id }: { id: string }) {
 
   return (
     <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
-      <h2 className="font-semibold text-lg sm:text-xl">Live Campaign Insights</h2>
+      <h2 className="font-semibold text-lg sm:text-xl">
+        Live Campaign Insights
+      </h2>
 
       {/* KPI CARD */}
       <div className="rounded-xl border bg-white shadow-sm p-4 sm:p-5 w-full max-w-none sm:max-w-md">
         <div className="text-sm text-gray-500 mb-1">Campaign ID</div>
-        <div className="text-lg font-semibold mb-4 break-all">{metrics?.campaign_id}</div>
+        <div className="text-lg font-semibold mb-4 break-all">
+          {metrics?.campaign_id}
+        </div>
 
         <div className="space-y-3">
           <Metric label="Impressions" value={metrics?.impressions} />
           <Metric label="Clicks" value={metrics?.clicks} />
-          <Metric label="Spend" value={`₹${metrics?.spend}`} />
+          <Metric label="Spend" value={`$${metrics?.spend}`} />
         </div>
 
         <div className="text-xs text-gray-400 mt-4">
@@ -96,18 +100,13 @@ export default function CampaignStream({ id }: { id: string }) {
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="timestamp" 
+              <XAxis
+                dataKey="timestamp"
                 fontSize={12}
                 tick={{ fontSize: 10 }}
               />
-              <YAxis 
-                fontSize={12}
-                tick={{ fontSize: 10 }}
-              />
-              <Tooltip 
-                contentStyle={{ fontSize: '12px' }}
-              />
+              <YAxis fontSize={12} tick={{ fontSize: 10 }} />
+              <Tooltip contentStyle={{ fontSize: "12px" }} />
               <Line
                 type="monotone"
                 dataKey="impressions"
@@ -134,7 +133,9 @@ function Metric({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="flex justify-between items-center">
       <span className="text-gray-600 text-sm">{label}</span>
-      <span className="font-semibold text-sm sm:text-base break-all text-right">{value}</span>
+      <span className="font-semibold text-sm sm:text-base break-all text-right">
+        {value}
+      </span>
     </div>
   );
 }
