@@ -33,14 +33,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
         </button>
 
         <nav className="flex justify-end lg:justify-between w-full">
-          <div className="hidden lg:flex items-center gap-4 w-3/5">
-            <IoIosSearch size={25} color="#4A4C56" />
-            <input
-              type="text"
-              placeholder="Search"
-              className="w-full focus:outline-0 bg-transparent"
-            />
-          </div>
+          <div className="hidden lg:flex items-center gap-4 w-3/5"></div>
           <ul className="flex space-x-2 sm:space-x-4 items-center gap-1 sm:gap-3">
             {NavContent?.map((el, index) => (
               <li key={index} className="hidden sm:block">
